@@ -33,10 +33,9 @@ export default class VerdaccioMiddlewarePlugin implements IPluginMiddleware<Cust
         proxy.web(req, res, {
           target: item.to,
           changeOrigin: true,
+          followRedirects: true,
           agent: agent,
-          autoRewrite: true,
-          secure: false,
-          toProxy: true
+
         }, (err) => {
           console.error(err);
         });
